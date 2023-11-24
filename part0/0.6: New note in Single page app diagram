@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>browser: User writes note in text field
+    browser->>browser: User clicks Save button
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/spa/new_note
+    activate server
+    server-->>browser: { "message": "Note saved successfully" }
+    deactivate server
+
+    Note right of browser: The browser updates the UI to show the newly created note
